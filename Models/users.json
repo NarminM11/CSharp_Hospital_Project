@@ -1,0 +1,26 @@
+[
+  {
+    "UserName": "narminmurshudova",
+    "FirstName": null,
+    "LastName": null,
+    "Email": "narmin@gmail.com",
+    "PhoneNumber": null,
+    "Password": null
+  },
+  {
+    "UserName": "narminmurshudova2",
+    "FirstName": "Narmin",
+    "LastName": "Murshudova",
+    "Email": "narminmurshudova@outlook.com",
+    "PhoneNumber": null,
+    "Password": "narminmurshudova"
+  },
+  {
+    "UserName": "RafigJavadov",
+    "FirstName": "Rafig",
+    "LastName": "Javadov",
+    "Email": "javadovrafig@gmail.com",
+    "PhoneNumber": null,
+    "Password": "rafigjavadov"
+  }
+]

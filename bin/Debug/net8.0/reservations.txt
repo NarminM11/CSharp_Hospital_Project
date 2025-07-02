@@ -1,0 +1,9 @@
+Lalə,Məmmədova,09:00-11:00,mnksdxmcls lcamks
+Lalə,Məmmədova,12:00-14:00,lmknjbh mknljbkhvg
+Lalə,Məmmədova,15:00-17:00,lknjbhvg lmknljbhvgbvjhnkj
+şahin,xəlilov,09:00-11:00,Narmin Murshudova
+Ceyhun,İsmayılov,09:00-11:00,Narmin Murshudova
+Şahin,Xəlilov,09:00-11:00,Narmin Murshudova
+Şahin,Xəlilov,12:00-14:00,Narmin Murshudova
+Tural,Rəhimli,09:00-11:00,Rafig Javadov
+Rauf,Səmədov,09:00-11:00,Rafig Javadov
