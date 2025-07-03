@@ -12,7 +12,7 @@ namespace CSharpHospitalAppointment
 {
     class Program
     {
-       
+
         static void Main(string[] args)
         {
             var userManager = new UserManager();
@@ -67,10 +67,42 @@ namespace CSharpHospitalAppointment
                     var password = Console.ReadLine();
 
                     var result = userManager.SignIn(username, password);
-                    if (result is Admin)
+                    if (result is Admin admin)
                     {
                         Console.WriteLine("Admin signed in successfully.");
-                        // TODO: Admin operations
+
+                        while (true)
+                        {
+                            Console.WriteLine("\n--- Admin Panel ---");
+                            Console.WriteLine("1. View Doctor Applications");
+                            Console.WriteLine("2. Approve/Reject Application");
+                            Console.WriteLine("3. Logout");
+                            Console.Write("Choice: ");
+                            var adminChoice = Console.ReadLine();
+
+                            if (adminChoice == "1")
+                            {
+                                admin.ViewAllDoctorApplications();
+                            }
+                            else if (adminChoice == "2")
+                            {
+                                Console.Write("Enter doctor email to update status: ");
+                                var email = Console.ReadLine();
+                                Console.Write("Enter new status (Approved / Rejected): ");
+                                var newStatus = Console.ReadLine();
+                                //3
+                                //admin.UpdateApplicationStatus(email, newStatus);
+                            }
+                            else if (adminChoice == "3")
+                            {
+                                Console.WriteLine("Logged out.");
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid choice.");
+                            }
+                        }
                     }
                 }
                 else if (input == "2")
@@ -114,32 +146,32 @@ namespace CSharpHospitalAppointment
                             Console.Write("Choice: ");
                             var selected = Console.ReadLine();
                             var pediatryDepartmentDoctors = new List<Doctor>
-            {
-                new Doctor("Lalə", "Məmmədova", 23),
-                new Doctor("Şahin", "Xəlilov", 20),
-                new Doctor("Anar", "Əmrah", 19)
-            };
+                            {
+                                new Doctor("Lalə", "Məmmədova", 23),
+                                new Doctor("Şahin", "Xəlilov", 20),
+                                new Doctor("Anar", "Əmrah", 19)
+                            };
 
                             var travmatologiyaDepartmentDoctors = new List<Doctor>
-            {
-                new Doctor("Ceyhun", "İsmayılov", 12),
-                new Doctor("Altay", "Cəfərov", 30),
-            };
+                            {
+                                new Doctor("Ceyhun", "İsmayılov", 12),
+                                new Doctor("Altay", "Cəfərov", 30),
+                            };
 
                             var stomatologiyaDepartmentDoctors = new List<Doctor>
-            {
-                new Doctor("Xəyalə", "Həsənova", 5),
-                new Doctor("Rauf", "Səmədov", 10),
-                new Doctor("Püstə", "Xəlilova", 12),
-                new Doctor("Tural", "Rəhimli", 9)
-            };
+                            {
+                                new Doctor("Xəyalə", "Həsənova", 5),
+                                new Doctor("Rauf", "Səmədov", 10),
+                                new Doctor("Püstə", "Xəlilova", 12),
+                                new Doctor("Tural", "Rəhimli", 9)
+                            };
 
                             var departments = new Dictionary<string, List<Doctor>>
-            {
-                { "1", pediatryDepartmentDoctors },
-                { "2", travmatologiyaDepartmentDoctors },
-                { "3", stomatologiyaDepartmentDoctors }
-            };
+                            {
+                                { "1", pediatryDepartmentDoctors },
+                                { "2", travmatologiyaDepartmentDoctors },
+                                { "3", stomatologiyaDepartmentDoctors }
+                            };
 
 
                             if (!departments.ContainsKey(selected))
@@ -153,8 +185,10 @@ namespace CSharpHospitalAppointment
                             for (int i = 0; i < selectedDoctors.Count; i++)
                             {
                                 var d = selectedDoctors[i];
-                                Console.WriteLine($"{i + 1}. {d.Firstname} {d.Lastname} - {d.WorkExperience} il təcrübə");
+                                Console.WriteLine(
+                                    $"{i + 1}. {d.Firstname} {d.Lastname} - {d.WorkExperience} il təcrübə");
                             }
+
                             Console.Write("Choice: ");
                             if (!int.TryParse(Console.ReadLine(), out int docIndex) ||
                                 docIndex < 1 || docIndex > selectedDoctors.Count)
@@ -181,6 +215,7 @@ namespace CSharpHospitalAppointment
                                     var status = slot.IsReserved ? "rezerv olunub" : "boşdur";
                                     Console.WriteLine($"{i + 1}. {slot.TimeRange} - {status}");
                                 }
+
                                 Console.Write("Choice: ");
                                 if (!int.TryParse(Console.ReadLine(), out int slotIndex) ||
                                     slotIndex < 1 || slotIndex > selectedDoctor.WorkingHours.Count)
@@ -188,17 +223,21 @@ namespace CSharpHospitalAppointment
                                     Console.WriteLine("Yanlış seçim, yenidən cəhd edin.");
                                     continue;
                                 }
+
                                 var chosen = selectedDoctor.WorkingHours[slotIndex - 1];
                                 if (chosen.IsReserved)
                                 {
                                     Console.WriteLine("Bu saat artıq rezerv olunub.");
                                     continue;
                                 }
+
                                 reservation.ReserveAppointment(user, selectedDoctor, chosen.TimeRange);
-                                Console.WriteLine($"Təşəkkürlər {user.FirstName}, {chosen.TimeRange} saatında {selectedDoctor.Firstname} həkimin qəbuluna yazıldınız.");
+                                Console.WriteLine(
+                                    $"Təşəkkürlər {user.FirstName}, {chosen.TimeRange} saatında {selectedDoctor.Firstname} həkimin qəbuluna yazıldınız.");
                                 break;
                             }
                         }
+
                         break;
                     case "2":
                         Console.Write("First Name: ");
@@ -244,9 +283,44 @@ namespace CSharpHospitalAppointment
                         if (doc != null)
                         {
                             Console.WriteLine($"Welcome Dr. {doc.Firstname}!");
-                            // TODO: Doctor operations
+
+                            while (true)
+                            {
+                                Console.WriteLine("\n--- Doctor Panel ---");
+                                Console.WriteLine("1. Apply for Job");
+                                Console.WriteLine("2. View Profile");
+                                Console.WriteLine("3. Logout");
+                                Console.Write("Choice: ");
+                                var doctorChoice = Console.ReadLine();
+
+                                if (doctorChoice == "1")
+                                {
+                                    Console.Write("Department you are applying for: ");
+                                    var department = Console.ReadLine();
+                                    Console.Write("Motivation Letter: ");
+                                    var motivation = Console.ReadLine();
+
+                                    doc.ApplyJob(department, motivation);
+                                }
+                                else if (doctorChoice == "2")
+                                {
+                                    Console.WriteLine($"Name: Dr. {doc.Firstname} {doc.Lastname}");
+                                    Console.WriteLine($"Email: {doc.Email}");
+                                    Console.WriteLine($"Experience: {doc.WorkExperience} years");
+                                }
+                                else if (doctorChoice == "3")
+                                {
+                                    Console.WriteLine("Logged out successfully.");
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Invalid choice, try again.");
+                                }
+                            }
                         }
                         break;
+
                     case "2":
                         Console.Write("First Name: ");
                         var firstName = Console.ReadLine();
@@ -257,7 +331,8 @@ namespace CSharpHospitalAppointment
 
                         if (!int.TryParse(workExpInput, out int workExperience) || workExperience < 0)
                         {
-                            Console.WriteLine("Invalid input. Please enter a non‐negative whole number for work experience.");
+                            Console.WriteLine(
+                                "Invalid input. Please enter a non‐negative whole number for work experience.");
                             return;
                         }
 
