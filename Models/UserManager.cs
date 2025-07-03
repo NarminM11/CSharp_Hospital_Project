@@ -8,15 +8,17 @@ namespace UserManagerNamespace;
 public class UserManager
 {
     public List<User> _users { get; set; }
+    private readonly string _filePath;
 
 
     public UserManager()
     {
-        string path = @"C:\Users\Ferid\Desktop\C#Hospital_Project\C#Hospital_Appointment\Models\users.json";
+        string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        _filePath = Path.Combine(desktopPath, "users.json");
 
-        if (File.Exists(path))
+        if (File.Exists(_filePath))
         {
-            var jsonData = File.ReadAllText(path);
+            var jsonData = File.ReadAllText(_filePath);
             _users = JsonSerializer.Deserialize<List<User>>(jsonData);
         }
         else
@@ -71,7 +73,7 @@ public class UserManager
         Console.WriteLine("User successfully signed up.");
         var options = new JsonSerializerOptions { WriteIndented = true };
         var jsonData = JsonSerializer.Serialize(_users, options);
-        File.WriteAllText(@"C:\Users\Ferid\Desktop\C#Hospital_Project\C#Hospital_Appointment\Models\users.json", jsonData);
+        File.WriteAllText(_filePath, jsonData);
 
     }
 

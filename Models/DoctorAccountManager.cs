@@ -1,22 +1,21 @@
-﻿using AdminNamespace;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.RegularExpressions;
-using UserNamespace;
 using DoctorNamespace;
 namespace DoctorAccountManagerNamespace
 {
     public class DoctorAccountManager
     {
         public List<Doctor> _doctors{ get; set; }
+        private readonly string _filePath;
 
 
         public DoctorAccountManager()
         {
-            string path = @"C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\Models\users.json";
-
-            if (File.Exists(path))
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            _filePath = Path.Combine(desktopPath, "doctors.json");
+            if (File.Exists(_filePath))
             {
-                var jsonData = File.ReadAllText(path);
+                var jsonData = File.ReadAllText(_filePath);
                 _doctors = JsonSerializer.Deserialize<List<Doctor>>(jsonData);
             }
             else
@@ -72,7 +71,7 @@ namespace DoctorAccountManagerNamespace
             Console.WriteLine("Doctor successfully signed up.");
             var options = new JsonSerializerOptions { WriteIndented = true };
             var jsonData = JsonSerializer.Serialize(_doctors, options);
-            File.WriteAllText(@"C:\Users\Ferid\Desktop\C#Hospital_Project\C#Hospital_Appointment\Models\doctors.json", jsonData);
+            File.WriteAllText(_filePath, jsonData);
 
         }
 

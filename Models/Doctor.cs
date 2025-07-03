@@ -1,5 +1,6 @@
 ﻿using AppointmentTimeNamespace;
-using System.Security.Cryptography.X509Certificates;
+using System.Text.Json;
+using C_Hospital_Appointment.Models;
 
 namespace DoctorNamespace;
 
@@ -14,6 +15,9 @@ public class Doctor
     // həkimin qəbul saatlarını saxlamaq üçün
     public List<AppointmentTime> WorkingHours { get; set; }
     public List<AppointmentTime> WorkingDays { get; set; }
+    public List<DoctorApplication> _applications { get; set; }
+
+    private readonly string _filePath;
 
     public Doctor()
     {
@@ -48,11 +52,37 @@ public class Doctor
 
     public void ApplyJob(string jobDepartment, string motivationLetter)
     {
+  
+        string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        string applicationFilePath = Path.Combine(desktopPath, "applications.json");
 
+        if (File.Exists(applicationFilePath))
+        {
+            var jsonData = File.ReadAllText(applicationFilePath);
+            _applications = JsonSerializer.Deserialize<List<DoctorApplication>>(jsonData) ?? new List<DoctorApplication>();
+        }
+        else
+        {
+            _applications = new List<DoctorApplication>();
+        }
+        
+        var newApplication = new DoctorApplication
+        {
+            doctorFirstame = this.Firstname,
+            doctorSurname = this.Lastname,
+            doctorEmail = this.Email,
+            doctorExperience = this.WorkExperience,
+            jobDepartment = jobDepartment,
+            motivationLetter = motivationLetter
+        }; 
 
+        _applications.Add(newApplication);
+        
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        var updatedJson = JsonSerializer.Serialize(_applications, options);
+        File.WriteAllText(applicationFilePath, updatedJson);
 
-
-
+        Console.WriteLine("Application submitted successfully.");
 
     }
    
