@@ -7,3 +7,8 @@ Ceyhun,İsmayılov,09:00-11:00,Narmin Murshudova
 Şahin,Xəlilov,12:00-14:00,Narmin Murshudova
 Tural,Rəhimli,09:00-11:00,Rafig Javadov
 Rauf,Səmədov,09:00-11:00,Rafig Javadov
+Şahin,Xəlilov,15:00-17:00,Omar Aliyev
+Tural,Rəhimli,12:00-14:00,Omar Aliyev
+Narmin,Murshudova,09:00-11:00,Narmin Murshudova
+Narmin,Murshudova,12:00-14:00,Narmin Murshudova
+Narmin,Murshudova,15:00-17:00,Narmin Murshudova

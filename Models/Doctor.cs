@@ -1,89 +1,109 @@
-﻿using AppointmentTimeNamespace;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Text.Json;
+using AppointmentTimeNamespace;
 using C_Hospital_Appointment.Models;
 
-namespace DoctorNamespace;
-
-public class Doctor
+namespace DoctorNamespace
 {
-    public string? Firstname { get; set; }
-    public string? Lastname { get; set; }
-    public string Password { get; set; }
-    public string Email { get; set; }
-    public int? WorkExperience { get; set; }
-
-    // həkimin qəbul saatlarını saxlamaq üçün
-    public List<AppointmentTime> WorkingHours { get; set; }
-    public List<AppointmentTime> WorkingDays { get; set; }
-    public List<DoctorApplication> _applications { get; set; }
-
-    private readonly string _filePath;
-
-    public Doctor()
+    public class Doctor
     {
+        public Guid Id { get; set; }
+        public string? Firstname { get; set; }
+        public string? Lastname { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public int? WorkExperience { get; set; }
+        public string Department { get; set; }
 
-    }
-    public Doctor(string firstname, string lastname, int workExperience)
-    {
-        Firstname = firstname;
-        Lastname = lastname;
-        WorkExperience = workExperience;
+        // hekimin qəbulu üçün saat və gün listələri
+        public List<AppointmentTime> WorkingHours { get; set; }
+        public List<AppointmentTime> WorkingDays  { get; set; }
 
-        // hekimin qebul saatlari
+        private List<DoctorApplication> _applications;
 
-        WorkingDays = new List<AppointmentTime>
+        private readonly string _dataFolderPath;
+        private readonly string _filePath;
+
+        public Doctor()
         {
-
-            new AppointmentTime { Date=DateTime.Now },
-            new AppointmentTime { Date = DateTime.Now.AddDays(1)},
-            new AppointmentTime { Date = DateTime.Now.AddDays(2)}
-        };
-
-        WorkingHours = new List<AppointmentTime>
-        {
-
-            new AppointmentTime { TimeRange = "09:00-11:00" },
-            new AppointmentTime { TimeRange = "12:00-14:00" },
-            new AppointmentTime { TimeRange = "15:00-17:00" }
-        };
-
-
-    }
-
-    public void ApplyJob(string jobDepartment, string motivationLetter)
-    {
-  
-        string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        string applicationFilePath = Path.Combine(desktopPath, "applications.json");
-
-        if (File.Exists(applicationFilePath))
-        {
-            var jsonData = File.ReadAllText(applicationFilePath);
-            _applications = JsonSerializer.Deserialize<List<DoctorApplication>>(jsonData) ?? new List<DoctorApplication>();
-        }
-        else
-        {
+            WorkingHours = new List<AppointmentTime>
+            {
+                new AppointmentTime { TimeRange = "09:00-11:00" },
+                new AppointmentTime { TimeRange = "12:00-14:00" },
+                new AppointmentTime { TimeRange = "15:00-17:00" }
+            };
+            WorkingDays = new List<AppointmentTime>
+            {
+                new AppointmentTime { Date = DateTime.Now },
+                new AppointmentTime { Date = DateTime.Now.AddDays(1) },
+                new AppointmentTime { Date = DateTime.Now.AddDays(2) }
+            };
             _applications = new List<DoctorApplication>();
+
+            string projectRoot = Path.GetFullPath(
+                Path.Combine(AppContext.BaseDirectory, "..", "..", ".."));
+            _dataFolderPath = Path.Combine(projectRoot, "Data");
+
+            if (!Directory.Exists(_dataFolderPath))
+                Directory.CreateDirectory(_dataFolderPath);
+
+            _filePath = Path.Combine(_dataFolderPath, "applications.json");
         }
-        
-        var newApplication = new DoctorApplication
+
+        public Doctor(string firstname, string lastname, int workExperience)
+            : this() 
         {
-            doctorFirstame = this.Firstname,
-            doctorSurname = this.Lastname,
-            doctorEmail = this.Email,
-            doctorExperience = this.WorkExperience,
-            jobDepartment = jobDepartment,
-            motivationLetter = motivationLetter
-        }; 
+            Firstname     = firstname;
+            Lastname      = lastname;
+            WorkExperience = workExperience;
+        }
 
-        _applications.Add(newApplication);
-        
-        var options = new JsonSerializerOptions { WriteIndented = true };
-        var updatedJson = JsonSerializer.Serialize(_applications, options);
-        File.WriteAllText(applicationFilePath, updatedJson);
+        public void ApplyJob()
+        {
+            // 1) Let user pick the department with arrows
+            var allowed = new[] { "Pediatriya", "Travmatologiya", "Stomatologiya" };
+            int depIndex = CSharpHospitalAppointment.Program.ShowMenu("Select Department", allowed);
+            string jobDepartment = allowed[depIndex];
 
-        Console.WriteLine("Application submitted successfully.");
+            // 2) Ask for the motivation letter
+            Console.Write("Motivation Letter: ");
+            var motivationLetter = Console.ReadLine()!;
+    
+            // 3) Load existing applications (if any)
+            if (File.Exists(_filePath))
+            {
+                var json = File.ReadAllText(_filePath);
+                _applications = JsonSerializer.Deserialize<List<DoctorApplication>>(json)
+                                ?? new List<DoctorApplication>();
+            }
+            else
+            {
+                _applications = new List<DoctorApplication>();
+            }
+
+            // 4) Create and save
+            var newApp = new DoctorApplication
+            {
+                Id               = Guid.NewGuid(),
+                doctorFirstame   = Firstname,
+                doctorSurname    = Lastname,
+                doctorEmail      = Email,
+                doctorExperience = WorkExperience,
+                jobDepartment    = jobDepartment,
+                motivationLetter = motivationLetter,
+                ApplicationDate  = DateTime.Now,
+                Status           = "Pending"
+            };
+            _applications.Add(newApp);
+
+            var options    = new JsonSerializerOptions { WriteIndented = true };
+            var updatedJson = JsonSerializer.Serialize(_applications, options);
+            File.WriteAllText(_filePath, updatedJson);
+
+            Console.WriteLine("Application submitted successfully.");
+        }
 
     }
-   
 }

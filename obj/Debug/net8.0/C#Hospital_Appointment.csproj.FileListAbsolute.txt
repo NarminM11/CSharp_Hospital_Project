@@ -43,3 +43,8 @@ C:/Users/Ferid/Desktop/C#Hospital_Project/C#Hospital_Appointment/obj/Debug/net8.
 /Users/narminmurshudova/Desktop/CSharp_Hospital_Project/obj/Debug/net8.0/C#Hospital_Appointment.pdb
 /Users/narminmurshudova/Desktop/CSharp_Hospital_Project/obj/Debug/net8.0/C#Hospital_Appointment.genruntimeconfig.cache
 /Users/narminmurshudova/Desktop/CSharp_Hospital_Project/obj/Debug/net8.0/ref/C#Hospital_Appointment.dll
+/Users/narminmurshudova/Desktop/CSharp_Hospital_Project/obj/Debug/net8.0/C#Hospital_Appointment.csproj.AssemblyReference.cache
+/Users/narminmurshudova/Desktop/CSharp_Hospital_Project/bin/Debug/net8.0/Serilog.dll
+/Users/narminmurshudova/Desktop/CSharp_Hospital_Project/bin/Debug/net8.0/Serilog.Sinks.Console.dll
+/Users/narminmurshudova/Desktop/CSharp_Hospital_Project/bin/Debug/net8.0/Serilog.Sinks.File.dll
+/Users/narminmurshudova/Desktop/CSharp_Hospital_Project/obj/Debug/net8.0/C#Hospit.BE888E87.Up2Date

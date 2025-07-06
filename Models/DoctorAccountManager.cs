@@ -1,22 +1,34 @@
-﻿using System.Text.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using DoctorNamespace;
+
 namespace DoctorAccountManagerNamespace
 {
     public class DoctorAccountManager
     {
-        public List<Doctor> _doctors{ get; set; }
+        public List<Doctor> _doctors { get; set; }
+        private readonly string _dataFolderPath;
         private readonly string _filePath;
-
 
         public DoctorAccountManager()
         {
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            _filePath = Path.Combine(desktopPath, "doctors.json");
+            string projectRoot = Path.GetFullPath(
+                Path.Combine(AppContext.BaseDirectory, "..", "..", ".."));
+
+            _dataFolderPath = Path.Combine(projectRoot, "Data");
+            if (!Directory.Exists(_dataFolderPath))
+                Directory.CreateDirectory(_dataFolderPath);
+
+            _filePath = Path.Combine(_dataFolderPath, "doctors.json");
+
             if (File.Exists(_filePath))
             {
                 var jsonData = File.ReadAllText(_filePath);
-                _doctors = JsonSerializer.Deserialize<List<Doctor>>(jsonData);
+                _doctors = JsonSerializer.Deserialize<List<Doctor>>(jsonData)
+                           ?? new List<Doctor>();
             }
             else
             {
@@ -29,10 +41,7 @@ namespace DoctorAccountManagerNamespace
             for (int i = 0; i < _doctors.Count; i++)
             {
                 if (_doctors[i].Email == email)
-                {
                     return i;
-                }
-
             }
             return -1;
         }
@@ -44,9 +53,8 @@ namespace DoctorAccountManagerNamespace
                 Console.WriteLine("This doctor already exists.");
                 return;
             }
-            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
 
-            if (!Regex.IsMatch(email, emailPattern))
+            if (!Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
                 Console.WriteLine("Invalid email format. Please enter a valid email address.");
                 return;
@@ -58,27 +66,25 @@ namespace DoctorAccountManagerNamespace
                 return;
             }
 
-            Doctor newDoctor = new Doctor()
+            var newDoctor = new Doctor
             {
-                Firstname = firstname,
-                Lastname = lastname,
+                Firstname      = firstname,
+                Lastname       = lastname,
                 WorkExperience = workExperience,
-                Email = email,
-                Password = password,
+                Email          = email,
+                Password       = password
             };
 
             _doctors.Add(newDoctor);
             Console.WriteLine("Doctor successfully signed up.");
+
             var options = new JsonSerializerOptions { WriteIndented = true };
             var jsonData = JsonSerializer.Serialize(_doctors, options);
             File.WriteAllText(_filePath, jsonData);
-
         }
-
 
         public object SignIn(string email, string password)
         {
-
             int index = SearchUser(email);
             if (index == -1)
             {
@@ -87,9 +93,7 @@ namespace DoctorAccountManagerNamespace
             }
 
             if (_doctors[index].Password == password)
-            {
                 return _doctors[index];
-            }
             else
             {
                 Console.WriteLine("Wrong password.");

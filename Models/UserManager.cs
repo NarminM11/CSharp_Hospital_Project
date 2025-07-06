@@ -13,13 +13,20 @@ public class UserManager
 
     public UserManager()
     {
-        string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        _filePath = Path.Combine(desktopPath, "users.json");
+   
+        string projectRoot = Path.GetFullPath(
+            Path.Combine(AppContext.BaseDirectory, "..", "..", ".."));
+
+        string dataFolderPath = Path.Combine(projectRoot, "Data");
+        if (!Directory.Exists(dataFolderPath))
+            Directory.CreateDirectory(dataFolderPath);
+
+        _filePath = Path.Combine(dataFolderPath, "users.json");
 
         if (File.Exists(_filePath))
         {
             var jsonData = File.ReadAllText(_filePath);
-            _users = JsonSerializer.Deserialize<List<User>>(jsonData);
+            _users = JsonSerializer.Deserialize<List<User>>(jsonData) ?? new List<User>();
         }
         else
         {

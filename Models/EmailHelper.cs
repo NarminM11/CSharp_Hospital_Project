@@ -10,7 +10,7 @@ namespace EmailhelperNamespace
         public static void SendEmailToAdmin(string subject, string body, string email)
         {
             var fromAddress = new MailAddress("nrmin.mrdova.01@bk.ru", "Mərkəzi Sağlamlıq Klinikası");
-            var toAddress = new MailAddress(email, "Admin");
+            var toAddress = new MailAddress(email, "Admin"); //userin mail-ine gedecek reserv olunanda
             const string fromPassword = "lWocXqoQsO9kOSOhEmj9";
 
             var smtp = new SmtpClient
