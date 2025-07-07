@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
+﻿using System.Text.Json;
 using AppointmentTimeNamespace;
 using C_Hospital_Appointment.Models;
 using DoctorNamespace;
@@ -11,20 +7,30 @@ namespace AdminNamespace
 {
     public class Admin
     {
-        public Guid Id { get; set; }
-        public string username { get; set; }
-        public string Password { get; set; }
+        public Guid Id { get; set; }  // adminin ID-si
+        public string username { get; set; }  // adminin username-i (admin)
+        public string password { get; set; }  // admin password-u (admin1234)
 
-        private readonly string _dataFolderPath;
+        private readonly string _dataFolderPath;  
 
         public Admin()
         {
-            string projectRoot = Path.GetFullPath(
-                Path.Combine(AppContext.BaseDirectory, "..", "..", ".."));
-            
-            _dataFolderPath = Path.Combine(projectRoot, "Data");
-            if (!Directory.Exists(_dataFolderPath))
-                Directory.CreateDirectory(_dataFolderPath);
+            try
+            {
+                // project root-a getmək üçün (..\..\..) base directory tapılır
+                string projectRoot = Path.GetFullPath(
+                    Path.Combine(AppContext.BaseDirectory, "..", "..", ".."));
+                _dataFolderPath = Path.Combine(projectRoot, "Data");  // data folder-i set edirik ki json-u orda saxlayaq
+
+                // eger data folderimiz yoxdursa yaradiriq
+                if (!Directory.Exists(_dataFolderPath))
+                    Directory.CreateDirectory(_dataFolderPath);
+            }
+            catch (Exception ex)
+            {
+                // eger folder zamani xeta olsa
+                throw new InvalidOperationException("Failed to initialize Admin data folder.", ex);
+            }
         }
 
         public List<DoctorApplication> ViewAllDoctorApplications()
@@ -64,87 +70,90 @@ namespace AdminNamespace
             return applications;
         }
 
+
         public void AcceptApplication(Guid id)
         {
-            string applicationFilePath = Path.Combine(_dataFolderPath, "applications.json");
-            string acceptedPath        = Path.Combine(_dataFolderPath, "acceptedDoctors.json");
+            string appPath  = Path.Combine(_dataFolderPath, "applications.json");
+            string accPath  = Path.Combine(_dataFolderPath, "acceptedDoctors.json");
 
-            var applications = JsonSerializer.Deserialize<List<DoctorApplication>>(
-                                   File.ReadAllText(applicationFilePath))
-                               ?? new List<DoctorApplication>();
-
-            var selectedApp = applications.FirstOrDefault(a => a.Id == id);
-            if (selectedApp == null)
+            try
             {
-                Console.WriteLine("Application not found.");
-                return;
-            }
+                // bütün application-lari fayldan yükleyirik
+                var applications = JsonSerializer.Deserialize<List<DoctorApplication>>(
+                                       File.ReadAllText(appPath))
+                                   ?? new List<DoctorApplication>();
 
-            selectedApp.Status = "Accepted";
+                // userin daxil etdiyi id-e gore secmek
+                var selected = applications.FirstOrDefault(a => a.Id == id)
+                               ?? throw new KeyNotFoundException($"No application with Id {id}");
 
-            var doctor = new Doctor
-            {
-                Id             = Guid.NewGuid(),
-                Firstname      = selectedApp.doctorFirstame,
-                Lastname       = selectedApp.doctorSurname,
-                Email          = selectedApp.doctorEmail,
-                WorkExperience = selectedApp.doctorExperience,
-                Department     = selectedApp.jobDepartment,
-                Password       = "doctorAccepted123",
-                WorkingHours   = new List<AppointmentTime>
+                selected.Status = "Accepted"; // qebul olunmus applicantin statusu accept olaraq yenilenir avtomatik
+
+
+                var doctor = new Doctor
                 {
-                    new AppointmentTime { TimeRange = "09:00-11:00" },
-                    new AppointmentTime { TimeRange = "12:00-14:00" },
-                    new AppointmentTime { TimeRange = "15:00-17:00" }
-                }
-            };
+                    Id = Guid.NewGuid(),
+                    Firstname = selected.doctorFirstame,
+                    Lastname = selected.doctorSurname,
+                    Email = selected.doctorEmail,
+                    WorkExperience = selected.doctorExperience,
+                    Department = selected.jobDepartment,
+                    Password = "doctorAccepted123", //standart password
+                    WorkingHours = new List<AppointmentTime>
+                    {
+                        new AppointmentTime { TimeRange = "09:00-11:00" },
+                        new AppointmentTime { TimeRange = "12:00-14:00" },
+                        new AppointmentTime { TimeRange = "15:00-17:00" }
+                    }
+                };
 
-            var acceptedDoctors = File.Exists(acceptedPath)
-                ? JsonSerializer.Deserialize<List<Doctor>>(File.ReadAllText(acceptedPath)) 
-                  ?? new List<Doctor>()
-                : new List<Doctor>();
+                // yeni hekim qebul olundugu ucun acceptedDoctors.json faylını yenileyirik
+                var acceptedDoctors = File.Exists(accPath)
+                    ? JsonSerializer.Deserialize<List<Doctor>>(File.ReadAllText(accPath)) ?? new List<Doctor>()
+                    : new List<Doctor>();
 
-            acceptedDoctors.Add(doctor);
-            File.WriteAllText(acceptedPath,
-                JsonSerializer.Serialize(acceptedDoctors, new JsonSerializerOptions { WriteIndented = true }));
-
-            File.WriteAllText(applicationFilePath,
-                JsonSerializer.Serialize(applications, new JsonSerializerOptions { WriteIndented = true }));
-
-            Console.WriteLine("Application accepted and doctor added.");
+                acceptedDoctors.Add(doctor);
+                File.WriteAllText(accPath,
+                    JsonSerializer.Serialize(acceptedDoctors, new JsonSerializerOptions { WriteIndented = true }));
+                File.WriteAllText(appPath,
+                    JsonSerializer.Serialize(applications, new JsonSerializerOptions { WriteIndented = true }));
+            }
+            catch (JsonException ex)
+            {
+                //eger jsonu deserialize ya da serialize edende xeta cixsa
+                throw new ApplicationException("Error serializing or deserializing JSON data.", ex);
+            }
         }
 
         public void RejectApplication(Guid applicationId)
         {
-            string applicationFilePath   = Path.Combine(_dataFolderPath, "applications.json");
-            string rejectedDoctorsPath   = Path.Combine(_dataFolderPath, "rejectedDoctors.json");
+            string appPath = Path.Combine(_dataFolderPath, "applications.json");
+            string rejPath = Path.Combine(_dataFolderPath, "rejectedDoctors.json");
 
-            var allApplications = JsonSerializer.Deserialize<List<DoctorApplication>>(
-                                      File.ReadAllText(applicationFilePath))
-                                  ?? new List<DoctorApplication>();
-
-            var application = allApplications.FirstOrDefault(app => app.Id == applicationId);
-            if (application == null)
+            try
             {
-                Console.WriteLine("Application not found.");
-                return;
+                var allApps = JsonSerializer.Deserialize<List<DoctorApplication>>(
+                                  File.ReadAllText(appPath))
+                              ?? new List<DoctorApplication>();
+
+                var application = allApps.FirstOrDefault(a => a.Id == applicationId)
+                                  ?? throw new KeyNotFoundException($"No application with Id {applicationId}");
+
+                application.Status = "Rejected";  
+
+                var rejectedList = File.Exists(rejPath)
+                    ? JsonSerializer.Deserialize<List<DoctorApplication>>(File.ReadAllText(rejPath)) 
+                      ?? new List<DoctorApplication>()
+                    : new List<DoctorApplication>();
+
+                rejectedList.Add(application);
+                File.WriteAllText(appPath, JsonSerializer.Serialize(allApps, new JsonSerializerOptions { WriteIndented = true }));
+                File.WriteAllText(rejPath, JsonSerializer.Serialize(rejectedList, new JsonSerializerOptions { WriteIndented = true }));
             }
-
-            application.Status = "Rejected";
-
-            var rejectedList = File.Exists(rejectedDoctorsPath)
-                ? JsonSerializer.Deserialize<List<DoctorApplication>>(File.ReadAllText(rejectedDoctorsPath))
-                  ?? new List<DoctorApplication>()
-                : new List<DoctorApplication>();
-
-            rejectedList.Add(application);
-
-            File.WriteAllText(applicationFilePath,
-                JsonSerializer.Serialize(allApplications, new JsonSerializerOptions { WriteIndented = true }));
-            File.WriteAllText(rejectedDoctorsPath,
-                JsonSerializer.Serialize(rejectedList, new JsonSerializerOptions { WriteIndented = true }));
-
-            Console.WriteLine($"Application from {application.doctorFirstame} {application.doctorSurname} rejected.");
+            catch (JsonException ex)
+            {
+                throw new ApplicationException("JSON error while processing rejection.", ex);
+            }
         }
     }
 }

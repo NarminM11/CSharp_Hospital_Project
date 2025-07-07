@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.RegularExpressions;
 using DoctorNamespace;
 
@@ -9,57 +6,71 @@ namespace DoctorAccountManagerNamespace
 {
     public class DoctorAccountManager
     {
-        public List<Doctor> _doctors { get; set; }
-        private readonly string _dataFolderPath;
-        private readonly string _filePath;
+        public List<Doctor> _doctors { get; set; }  // bütün doctorlar burada olacaq
+        private readonly string _dataFolderPath;    
+        private readonly string _filePath;         
 
         public DoctorAccountManager()
         {
-            string projectRoot = Path.GetFullPath(
-                Path.Combine(AppContext.BaseDirectory, "..", "..", ".."));
-
-            _dataFolderPath = Path.Combine(projectRoot, "Data");
-            if (!Directory.Exists(_dataFolderPath))
-                Directory.CreateDirectory(_dataFolderPath);
-
-            _filePath = Path.Combine(_dataFolderPath, "doctors.json");
-
-            if (File.Exists(_filePath))
+            try
             {
-                var jsonData = File.ReadAllText(_filePath);
-                _doctors = JsonSerializer.Deserialize<List<Doctor>>(jsonData)
-                           ?? new List<Doctor>();
+                string projectRoot = Path.GetFullPath(
+                    Path.Combine(AppContext.BaseDirectory, "..", "..", ".."));
+                _dataFolderPath = Path.Combine(projectRoot, "Data");
+                if (!Directory.Exists(_dataFolderPath))
+                    Directory.CreateDirectory(_dataFolderPath);  
+
+                _filePath = Path.Combine(_dataFolderPath, "doctors.json");
+
+                if (File.Exists(_filePath))
+                {
+                    var jsonData = File.ReadAllText(_filePath);
+                    _doctors = JsonSerializer.Deserialize<List<Doctor>>(jsonData)
+                               ?? new List<Doctor>();
+                }
+                else
+                {
+                    _doctors = new List<Doctor>(); 
+                }
             }
-            else
+            catch (JsonException ex)
             {
-                _doctors = new List<Doctor>();
+                // json parse xetası
+                throw new ApplicationException("Error parsing doctors.json.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Failed to setup DoctorAccountManager.", ex);
             }
         }
 
         public int SearchUser(string email)
         {
+            // email ilə doctor index-ini tapiriq
             for (int i = 0; i < _doctors.Count; i++)
             {
                 if (_doctors[i].Email == email)
                     return i;
             }
-            return -1;
+            return -1;  // tapilmasa
         }
 
         public void SignUp(string firstname, string lastname, int workExperience, string email, string password)
         {
             if (SearchUser(email) != -1)
             {
-                Console.WriteLine("This doctor already exists.");
+                Console.WriteLine("This doctor already exists.");  // artıq  bu email ile qeydiyyatlı hekim var
                 return;
             }
 
+            // email format regex validasiya
             if (!Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
                 Console.WriteLine("Invalid email format. Please enter a valid email address.");
                 return;
             }
 
+            // password length
             if (password.Length <= 8)
             {
                 Console.WriteLine("Password should be more than 8 characters.");
@@ -68,7 +79,7 @@ namespace DoctorAccountManagerNamespace
 
             var newDoctor = new Doctor
             {
-                Firstname      = firstname,
+                Firstname      = firstname,   
                 Lastname       = lastname,
                 WorkExperience = workExperience,
                 Email          = email,
@@ -76,27 +87,38 @@ namespace DoctorAccountManagerNamespace
             };
 
             _doctors.Add(newDoctor);
-            Console.WriteLine("Doctor successfully signed up.");
+            Console.WriteLine("Doctor successfully signed up."); //succes mesage
 
-            var options = new JsonSerializerOptions { WriteIndented = true };
-            var jsonData = JsonSerializer.Serialize(_doctors, options);
-            File.WriteAllText(_filePath, jsonData);
+            try
+            {
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                var jsonData = JsonSerializer.Serialize(_doctors, options);
+                File.WriteAllText(_filePath, jsonData);
+            }
+            catch (IOException ex)
+            {
+                throw new ApplicationException("Error writing to doctors.json.", ex);
+            }
+            catch (JsonException ex)
+            {
+                throw new ApplicationException("Error serializing doctor list.", ex);
+            }
         }
 
-        public object SignIn(string email, string password)
+        public Doctor? SignIn(string email, string password)
         {
             int index = SearchUser(email);
             if (index == -1)
             {
-                Console.WriteLine("Doctor not found.");
+                Console.WriteLine("Doctor not found.");  
                 return null;
             }
 
             if (_doctors[index].Password == password)
-                return _doctors[index];
+                return _doctors[index];  // login success
             else
             {
-                Console.WriteLine("Wrong password.");
+                Console.WriteLine("Wrong password.");  
                 return null;
             }
         }
