@@ -1,0 +1,443 @@
+[
+  {
+    "Id": "5f1df00e-fffd-468a-9069-f2d993221b02",
+    "Firstname": "Lal\u0259",
+    "Lastname": "M\u0259mm\u0259dova",
+    "Password": "doctorAccepted123",
+    "Email": "lalamammadova@gmail.com",
+    "WorkExperience": 23,
+    "Department": "Pediatry",
+    "WorkingHours": [
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "09:00-11:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "12:00-14:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "15:00-17:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ],
+    "WorkingDays": [
+      {
+        "Date": "2025-07-07T22:57:41.089336+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-08T22:57:41.089338+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-09T22:57:41.08934+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ]
+  },
+  {
+    "Id": "a7123b45-c678-4da9-aa12-bc34def56789",
+    "Firstname": "\u015Eahin",
+    "Lastname": "X\u0259lilov",
+    "Password": "doctorAccepted123",
+    "Email": "sahinxelilov@gmail.com",
+    "WorkExperience": 20,
+    "Department": "Pediatry",
+    "WorkingHours": [
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "09:00-11:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "12:00-14:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "15:00-17:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ],
+    "WorkingDays": [
+      {
+        "Date": "2025-07-07T22:57:41.089336+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-08T22:57:41.089338+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-09T22:57:41.08934+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ]
+  },
+  {
+    "Id": "b8234c56-d789-4eb0-bb23-cdef67891234",
+    "Firstname": "Anar",
+    "Lastname": "\u018Fmrah",
+    "Password": "doctorAccepted123",
+    "Email": "anaremrah@gmail.com",
+    "WorkExperience": 19,
+    "Department": "Pediatry",
+    "WorkingHours": [
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "09:00-11:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "12:00-14:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "15:00-17:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ],
+    "WorkingDays": [
+      {
+        "Date": "2025-07-07T22:57:41.089336+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-08T22:57:41.089338+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-09T22:57:41.08934+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ]
+  },
+  {
+    "Id": "c9345d67-e890-4fc1-cc34-def901234567",
+    "Firstname": "Ceyhun",
+    "Lastname": "\u0130smay\u0131lov",
+    "Password": "doctorAccepted123",
+    "Email": "ceyhunismayilov@gmail.com",
+    "WorkExperience": 12,
+    "Department": "Travmatologiya",
+    "WorkingHours": [
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "09:00-11:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "12:00-14:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "15:00-17:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ],
+    "WorkingDays": [
+      {
+        "Date": "2025-07-07T22:57:41.089336+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-08T22:57:41.089338+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-09T22:57:41.08934+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ]
+  },
+  {
+    "Id": "d1456e78-f901-40d2-dd45-ef0123456789",
+    "Firstname": "Altay",
+    "Lastname": "C\u0259f\u0259rov",
+    "Password": "doctorAccepted123",
+    "Email": "altayceferov@gmail.com",
+    "WorkExperience": 30,
+    "Department": "Travmatologiya",
+    "WorkingHours": [
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "09:00-11:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "12:00-14:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "15:00-17:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ],
+    "WorkingDays": [
+      {
+        "Date": "2025-07-07T22:57:41.089336+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-08T22:57:41.089338+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-09T22:57:41.08934+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ]
+  },
+  {
+    "Id": "e2567f89-0a12-41e3-ee56-f01234567890",
+    "Firstname": "X\u0259yal\u0259",
+    "Lastname": "H\u0259s\u0259nova",
+    "Password": "doctorAccepted123",
+    "Email": "xeyalehasenova@gmail.com",
+    "WorkExperience": 5,
+    "Department": "Stomatologiya",
+    "WorkingHours": [
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "09:00-11:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "12:00-14:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "15:00-17:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ],
+    "WorkingDays": [
+      {
+        "Date": "2025-07-07T22:57:41.089336+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-08T22:57:41.089338+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-09T22:57:41.08934+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ]
+  },
+  {
+    "Id": "f3678a90-1b23-42f4-ff67-012345678901",
+    "Firstname": "Rauf",
+    "Lastname": "S\u0259m\u0259dov",
+    "Password": "doctorAccepted123",
+    "Email": "raufsamedov@gmail.com",
+    "WorkExperience": 10,
+    "Department": "Stomatologiya",
+    "WorkingHours": [
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "09:00-11:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "12:00-14:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "15:00-17:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ],
+    "WorkingDays": [
+      {
+        "Date": "2025-07-07T22:57:41.089336+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-08T22:57:41.089338+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-09T22:57:41.08934+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ]
+  },
+  {
+    "Id": "a4789b01-2c34-43b5-0012-123456789012",
+    "Firstname": "P\u00FCst\u0259",
+    "Lastname": "X\u0259lilova",
+    "Password": "doctorAccepted123",
+    "Email": "pustexelilova@gmail.com",
+    "WorkExperience": 12,
+    "Department": "Stomatologiya",
+    "WorkingHours": [
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "09:00-11:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "12:00-14:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "15:00-17:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ],
+    "WorkingDays": [
+      {
+        "Date": "2025-07-07T22:57:41.089336+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-08T22:57:41.089338+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-09T22:57:41.08934+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ]
+  },
+  {
+    "Id": "b5890c12-3d45-44c6-1123-234567890123",
+    "Firstname": "Tural",
+    "Lastname": "R\u0259himli",
+    "Password": "doctorAccepted123",
+    "Email": "turalrahimli@gmail.com",
+    "WorkExperience": 9,
+    "Department": "Stomatologiya",
+    "WorkingHours": [
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "09:00-11:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "12:00-14:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "15:00-17:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ],
+    "WorkingDays": [
+      {
+        "Date": "2025-07-07T22:57:41.089336+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-08T22:57:41.089338+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-09T22:57:41.08934+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ]
+  }
+]

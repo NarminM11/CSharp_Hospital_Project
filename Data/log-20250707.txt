@@ -1,0 +1,83 @@
+2025-07-07 23:24:12 [INF] Application started
+2025-07-07 23:24:12 [INF] Displaying main menu
+2025-07-07 23:24:13 [DBG] Main menu choice: 1
+2025-07-07 23:24:13 [INF] Entering Admin menu
+2025-07-07 23:24:14 [DBG] Admin menu choice: 1
+2025-07-07 23:24:18 [DBG] Admin sign-in attempt: admin
+2025-07-07 23:24:18 [INF] Admin signed in successfully: admin
+2025-07-07 23:24:20 [DBG] Admin panel choice: 1
+2025-07-07 23:24:20 [INF] Admin viewing all doctor applications
+2025-07-07 23:24:22 [DBG] Admin panel choice: 1
+2025-07-07 23:24:22 [INF] Admin viewing all doctor applications
+2025-07-07 23:24:23 [DBG] Admin panel choice: 1
+2025-07-07 23:24:23 [INF] Admin viewing all doctor applications
+2025-07-07 23:24:38 [DBG] Admin panel choice: 2
+2025-07-07 23:24:45 [DBG] Admin decision for application "20d98590-65af-430e-8055-b36e8bb12df5": 1
+2025-07-07 23:24:45 [WRN] Invalid admin decision: 1
+2025-07-07 23:24:46 [DBG] Admin panel choice: 1
+2025-07-07 23:24:46 [INF] Admin viewing all doctor applications
+2025-07-07 23:24:49 [DBG] Admin panel choice: 1
+2025-07-07 23:24:49 [INF] Admin viewing all doctor applications
+2025-07-07 23:24:50 [DBG] Admin panel choice: 1
+2025-07-07 23:24:50 [INF] Admin viewing all doctor applications
+2025-07-07 23:24:51 [DBG] Admin panel choice: 1
+2025-07-07 23:24:51 [INF] Admin viewing all doctor applications
+2025-07-07 23:24:52 [DBG] Admin panel choice: 1
+2025-07-07 23:24:52 [INF] Admin viewing all doctor applications
+2025-07-07 23:24:52 [DBG] Admin panel choice: 
+2025-07-07 23:24:52 [WRN] Invalid admin panel choice: 
+2025-07-07 23:24:52 [DBG] Admin panel choice: 
+2025-07-07 23:24:52 [WRN] Invalid admin panel choice: 
+2025-07-07 23:24:53 [DBG] Admin panel choice: 1
+2025-07-07 23:24:53 [INF] Admin viewing all doctor applications
+2025-07-07 23:24:54 [DBG] Admin panel choice: 1
+2025-07-07 23:24:54 [INF] Admin viewing all doctor applications
+2025-07-07 23:24:55 [DBG] Admin panel choice: 1
+2025-07-07 23:24:55 [INF] Admin viewing all doctor applications
+2025-07-07 23:24:56 [DBG] Admin panel choice: 
+2025-07-07 23:24:56 [WRN] Invalid admin panel choice: 
+2025-07-07 23:24:58 [DBG] Admin panel choice: 1
+2025-07-07 23:24:58 [INF] Admin viewing all doctor applications
+2025-07-07 23:41:40 [INF] Application started
+2025-07-07 23:41:41 [DBG] Main menu choice: Admin
+2025-07-07 23:41:41 [INF] Entering Admin menu
+2025-07-07 23:41:42 [DBG] Admin menu choice: Sign In
+2025-07-07 23:41:47 [DBG] Admin sign-in attempt: admin
+2025-07-07 23:41:47 [INF] Admin signed in: admin
+2025-07-07 23:41:48 [DBG] Admin panel choice: View Applications
+2025-07-07 23:41:49 [DBG] Admin panel choice: View Applications
+2025-07-07 23:41:51 [DBG] Admin panel choice: View Applications
+2025-07-07 23:41:53 [DBG] Admin panel choice: Approve/Reject
+2025-07-07 23:42:00 [DBG] Admin decision for "20d98590-65af-430e-8055-b36e8bb12df5": Accept
+2025-07-07 23:42:00 [INF] Accepted "20d98590-65af-430e-8055-b36e8bb12df5"
+2025-07-07 23:42:01 [DBG] Admin panel choice: View Applications
+2025-07-07 23:42:02 [DBG] Admin panel choice: View Applications
+2025-07-07 23:42:02 [DBG] Admin panel choice: View Applications
+2025-07-07 23:42:03 [DBG] Admin panel choice: View Applications
+2025-07-07 23:42:04 [DBG] Admin panel choice: View Applications
+2025-07-07 23:42:06 [DBG] Admin panel choice: View Applications
+2025-07-07 23:42:07 [DBG] Admin panel choice: View Applications
+2025-07-07 23:42:11 [DBG] Admin panel choice: View Applications
+2025-07-07 23:42:12 [DBG] Admin panel choice: View Applications
+2025-07-07 23:42:13 [DBG] Admin panel choice: View Applications
+2025-07-07 23:42:13 [DBG] Admin panel choice: View Applications
+2025-07-07 23:42:13 [DBG] Admin panel choice: View Applications
+2025-07-07 23:53:00 [INF] Application started
+2025-07-07 23:53:28 [DBG] Main menu choice: Admin
+2025-07-07 23:53:28 [INF] Entering Admin menu
+2025-07-07 23:53:28 [DBG] Admin menu choice: Sign In
+2025-07-07 23:53:32 [DBG] Admin sign-in attempt: admin
+2025-07-07 23:53:32 [INF] Admin signed in: admin
+2025-07-07 23:53:33 [DBG] Admin panel choice: View Applications
+2025-07-07 23:53:37 [DBG] Admin panel choice: Approve/Reject
+2025-07-07 23:53:42 [DBG] Admin decision for "20d98590-65af-430e-8055-b36e8bb12df5": Accept
+2025-07-07 23:53:42 [INF] Accepted "20d98590-65af-430e-8055-b36e8bb12df5"
+2025-07-07 23:53:50 [DBG] Admin panel choice: Logout
+2025-07-07 23:53:50 [INF] Admin logged out: admin
+2025-07-07 23:53:52 [DBG] Admin menu choice: Back
+2025-07-07 23:53:54 [DBG] Main menu choice: User
+2025-07-07 23:53:54 [INF] Entering User menu
+2025-07-07 23:53:55 [DBG] User menu choice: Sign In
+2025-07-07 23:54:07 [DBG] User sign-in attempt: narminmurshudova23
+2025-07-07 23:54:07 [INF] User signed in: narminmurshudova23
+2025-07-07 23:54:07 [DBG] Loading accepted doctors from Data folder

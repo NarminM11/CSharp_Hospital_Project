@@ -1,0 +1,24 @@
+[
+  {
+    "Id": "20d98590-65af-430e-8055-b36e8bb12df5",
+    "doctorFirstame": "Lal\u0259",
+    "doctorSurname": "M\u0259mm\u0259dova",
+    "doctorEmail": "lalamammadova@gmail.com",
+    "doctorExperience": 23,
+    "motivationLetter": "U\u015Faqlar\u0131n sa\u011Flam g\u0259l\u0259c\u0259yi \u00FC\u00E7\u00FCn \u00F6z\u00FCm\u00FC bu sah\u0259y\u0259 h\u0259sr etm\u0259y\u0259 haz\u0131ram.",
+    "jobDepartment": "Pediatriya",
+    "ApplicationDate": "2025-07-07T22:57:11.461948+04:00",
+    "Status": "Rejected"
+  },
+  {
+    "Id": "e3f9e061-0c69-4794-9d05-bcd01233c453",
+    "doctorFirstame": "Samaya",
+    "doctorSurname": "Aliyeva",
+    "doctorEmail": "samayaliyeva@gmail.com",
+    "doctorExperience": 4,
+    "motivationLetter": "bu isi cox isteyirem",
+    "jobDepartment": "Travmatologiya",
+    "ApplicationDate": "2025-07-08T00:22:28.298708+04:00",
+    "Status": "Pending"
+  }
+]

@@ -1,0 +1,75 @@
+2025-07-08 00:08:43 [INF] Application started
+2025-07-08 00:08:44 [DBG] Main menu choice: Admin
+2025-07-08 00:08:44 [INF] Entering Admin menu
+2025-07-08 00:08:45 [DBG] Admin menu choice: 0
+2025-07-08 00:08:50 [DBG] Admin sign-in attempt: admin
+2025-07-08 00:08:50 [INF] Admin signed in: admin
+2025-07-08 00:08:51 [DBG] Admin panel choice: 0
+2025-07-08 00:08:55 [DBG] Admin panel choice: 1
+2025-07-08 00:09:00 [INF] Rejected: "20d98590-65af-430e-8055-b36e8bb12df5"
+2025-07-08 00:09:03 [DBG] Admin panel choice: 0
+2025-07-08 00:09:12 [DBG] Admin panel choice: 2
+2025-07-08 00:09:12 [INF] Admin logged out: admin
+2025-07-08 00:09:14 [DBG] Admin menu choice: 1
+2025-07-08 00:09:15 [DBG] Main menu choice: User
+2025-07-08 00:09:15 [INF] Entering User menu
+2025-07-08 00:09:17 [DBG] User menu choice: Sign In
+2025-07-08 00:09:24 [DBG] User sign-in attempt: narminmurshudova23
+2025-07-08 00:09:24 [INF] User signed in: narminmurshudova23
+2025-07-08 00:09:24 [DBG] Loading accepted doctors from Data folder
+2025-07-08 00:09:30 [DBG] User menu choice: Sign In
+2025-07-08 00:10:31 [INF] Application started
+2025-07-08 00:10:33 [DBG] Main menu choice: User
+2025-07-08 00:10:33 [INF] Entering User menu
+2025-07-08 00:10:34 [DBG] User menu choice: Sign In
+2025-07-08 00:10:46 [DBG] User sign-in attempt: narminmurshudova23
+2025-07-08 00:10:46 [INF] User signed in: narminmurshudova23
+2025-07-08 00:10:46 [DBG] Loading accepted doctors from Data folder
+2025-07-08 00:11:00 [INF] Application started
+2025-07-08 00:11:04 [DBG] Main menu choice: Admin
+2025-07-08 00:11:04 [INF] Entering Admin menu
+2025-07-08 00:11:05 [DBG] Admin menu choice: 0
+2025-07-08 00:11:08 [DBG] Admin sign-in attempt: admin
+2025-07-08 00:11:08 [INF] Admin signed in: admin
+2025-07-08 00:11:09 [DBG] Admin panel choice: 0
+2025-07-08 00:11:12 [DBG] Admin panel choice: 1
+2025-07-08 00:11:16 [INF] Rejected: "20d98590-65af-430e-8055-b36e8bb12df5"
+2025-07-08 00:11:33 [DBG] Admin panel choice: 0
+2025-07-08 00:11:36 [DBG] Admin panel choice: 2
+2025-07-08 00:11:36 [INF] Admin logged out: admin
+2025-07-08 00:11:37 [DBG] Admin menu choice: 1
+2025-07-08 00:11:39 [DBG] Main menu choice: User
+2025-07-08 00:11:39 [INF] Entering User menu
+2025-07-08 00:11:40 [DBG] User menu choice: Sign In
+2025-07-08 00:11:46 [DBG] User sign-in attempt: narminmurshudova23
+2025-07-08 00:11:46 [INF] User signed in: narminmurshudova23
+2025-07-08 00:11:46 [DBG] Loading accepted doctors from Data folder
+2025-07-08 00:21:33 [INF] Application started
+2025-07-08 00:21:36 [DBG] Main menu choice: Doctor
+2025-07-08 00:21:36 [INF] Entering Doctor menu
+2025-07-08 00:21:39 [DBG] Doctor menu choice: Sign Up
+2025-07-08 00:22:03 [DBG] Doctor menu choice: Sign In
+2025-07-08 00:22:16 [INF] Doctor signed in: samayaliyeva@gmail.com
+2025-07-08 00:22:38 [DBG] Doctor menu choice: Back
+2025-07-08 00:22:40 [DBG] Main menu choice: User
+2025-07-08 00:22:40 [INF] Entering User menu
+2025-07-08 00:22:41 [DBG] User menu choice: Sign In
+2025-07-08 00:22:50 [DBG] User sign-in attempt: narminmurshudova23
+2025-07-08 00:22:50 [INF] User signed in: narminmurshudova23
+2025-07-08 00:22:50 [DBG] Loading accepted doctors from Data folder
+2025-07-08 00:23:40 [INF] Application started
+2025-07-08 00:23:41 [DBG] Main menu choice: Admin
+2025-07-08 00:23:41 [INF] Entering Admin menu
+2025-07-08 00:23:43 [DBG] Admin menu choice: 0
+2025-07-08 00:23:46 [DBG] Admin sign-in attempt: admin
+2025-07-08 00:23:46 [INF] Admin signed in: admin
+2025-07-08 00:23:47 [DBG] Admin panel choice: 0
+2025-07-08 00:23:52 [DBG] Admin panel choice: 2
+2025-07-08 00:23:52 [INF] Admin logged out: admin
+2025-07-08 00:23:53 [DBG] Admin menu choice: 1
+2025-07-08 00:23:54 [DBG] Main menu choice: User
+2025-07-08 00:23:54 [INF] Entering User menu
+2025-07-08 00:23:55 [DBG] User menu choice: Sign In
+2025-07-08 00:24:02 [DBG] User sign-in attempt: narminmurshudova23
+2025-07-08 00:24:02 [INF] User signed in: narminmurshudova23
+2025-07-08 00:24:02 [DBG] Loading accepted doctors from Data folder

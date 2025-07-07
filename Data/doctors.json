@@ -1,0 +1,100 @@
+[
+  {
+    "Id": "00000000-0000-0000-0000-000000000000",
+    "Firstname": "Lal\u0259",
+    "Lastname": "M\u0259mm\u0259dova",
+    "Password": "lalamammadova23",
+    "Email": "lalamammadova@gmail.com",
+    "WorkExperience": 23,
+    "Department": null,
+    "WorkingHours": [
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "09:00-11:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "12:00-14:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "15:00-17:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ],
+    "WorkingDays": [
+      {
+        "Date": "2025-07-07T22:55:31.865137+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-08T22:55:31.894081+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-09T22:55:31.894083+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ]
+  },
+  {
+    "Id": "00000000-0000-0000-0000-000000000000",
+    "Firstname": "Samaya",
+    "Lastname": "Aliyeva",
+    "Password": "samayaliyeva4",
+    "Email": "samayaliyeva@gmail.com",
+    "WorkExperience": 4,
+    "Department": null,
+    "WorkingHours": [
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "09:00-11:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "12:00-14:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "0001-01-01T00:00:00",
+        "TimeRange": "15:00-17:00",
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ],
+    "WorkingDays": [
+      {
+        "Date": "2025-07-08T00:22:01.368254+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-09T00:22:01.368322+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      },
+      {
+        "Date": "2025-07-10T00:22:01.368325+04:00",
+        "TimeRange": null,
+        "IsReserved": false,
+        "ReservedBy": null
+      }
+    ]
+  }
+]
