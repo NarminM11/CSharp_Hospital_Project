@@ -1,0 +1,35 @@
+2025-07-09 20:33:30 [INF] Application started
+2025-07-09 20:33:35 [DBG] Main menu choice: Admin
+2025-07-09 20:33:35 [INF] Entering Admin menu
+2025-07-09 20:33:37 [DBG] Admin menu choice: 0
+2025-07-09 20:33:42 [DBG] Admin sign-in attempt: admin
+2025-07-09 20:33:42 [WRN] Admin sign-in failed: admin
+2025-07-09 20:33:56 [DBG] Admin menu choice: 0
+2025-07-09 20:34:00 [DBG] Admin sign-in attempt: admin
+2025-07-09 20:34:00 [WRN] Admin sign-in failed: admin
+2025-07-09 20:34:32 [DBG] Admin menu choice: 0
+2025-07-09 20:35:05 [DBG] Admin sign-in attempt: admin
+2025-07-09 20:35:05 [INF] Admin signed in: admin
+2025-07-09 20:35:06 [DBG] Admin panel choice: 0
+2025-07-09 20:35:41 [INF] Application started
+2025-07-09 20:35:44 [DBG] Main menu choice: Admin
+2025-07-09 20:35:44 [INF] Entering Admin menu
+2025-07-09 20:35:45 [DBG] Admin menu choice: 0
+2025-07-09 20:35:49 [DBG] Admin sign-in attempt: admin
+2025-07-09 20:35:49 [INF] Admin signed in: admin
+2025-07-09 20:35:50 [DBG] Admin panel choice: 0
+2025-07-09 20:37:05 [INF] Application started
+2025-07-09 20:37:06 [DBG] Main menu choice: Admin
+2025-07-09 20:37:06 [INF] Entering Admin menu
+2025-07-09 20:37:07 [DBG] Admin menu choice: 0
+2025-07-09 20:37:11 [DBG] Admin sign-in attempt: admin
+2025-07-09 20:37:11 [INF] Admin signed in: admin
+2025-07-09 20:37:12 [DBG] Admin panel choice: 0
+2025-07-09 20:37:41 [INF] Application started
+2025-07-09 20:37:57 [DBG] Main menu choice: User
+2025-07-09 20:37:57 [INF] Entering User menu
+2025-07-09 20:37:57 [DBG] User menu choice: Sign In
+2025-07-09 20:38:07 [DBG] User sign-in attempt: narminmurshudova23
+2025-07-09 20:38:07 [INF] User signed in: narminmurshudova23
+2025-07-09 20:38:07 [DBG] Loading accepted doctors from Data folder
+2025-07-09 20:38:11 [DBG] User menu choice: Sign In

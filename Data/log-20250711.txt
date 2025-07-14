@@ -1,0 +1,3 @@
+2025-07-11 21:58:33 [INF] Application started
+2025-07-11 22:01:01 [DBG] Main menu choice: Admin
+2025-07-11 22:01:01 [INF] Entering Admin menu

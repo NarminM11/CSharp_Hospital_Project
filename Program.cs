@@ -57,38 +57,8 @@ namespace CSharpHospitalAppointment
             return doctors ?? new List<Doctor>();
         }
 
-        static List<Doctor> LoadDoctors()
-        {
-            Log.Debug("Loading all doctors from Data folder");
-            string projectRoot = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", ".."));
-            string dataFolder = Path.Combine(projectRoot, "Data");
-            string filePath = Path.Combine(dataFolder, "doctors.json");
 
-            if (!File.Exists(filePath))
-            {
-                Log.Warning("Doctors file not found at {FilePath}", filePath);
-                return new List<Doctor>();
-            }
-
-            var jsonData = File.ReadAllText(filePath);
-            var doctors = JsonSerializer.Deserialize<List<Doctor>>(jsonData) ?? new List<Doctor>();
-
-            foreach (var doctor in doctors)
-            {
-                if (doctor.WorkingHours == null)
-                {
-                    doctor.WorkingHours = new List<AppointmentTime>
-                    {
-                        new AppointmentTime { TimeRange = "09:00-11:00" },
-                        new AppointmentTime { TimeRange = "12:00-14:00" },
-                        new AppointmentTime { TimeRange = "15:00-17:00" }
-                    };
-                }
-            }
-
-            return doctors;
-        }
-
+        
         static void Main(string[] args)
         {
             // serilog configuration

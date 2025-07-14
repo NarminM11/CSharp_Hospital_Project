@@ -95,10 +95,7 @@ namespace DoctorAccountManagerNamespace
                 var jsonData = JsonSerializer.Serialize(_doctors, options);
                 File.WriteAllText(_filePath, jsonData);
             }
-            catch (IOException ex)
-            {
-                throw new ApplicationException("Error writing to doctors.json.", ex);
-            }
+          
             catch (JsonException ex)
             {
                 throw new ApplicationException("Error serializing doctor list.", ex);
@@ -115,7 +112,9 @@ namespace DoctorAccountManagerNamespace
             }
 
             if (_doctors[index].Password == password)
-                return _doctors[index];  // login success
+            {
+                return _doctors[index]; // login success
+            }
             else
             {
                 Console.WriteLine("Wrong password.");  

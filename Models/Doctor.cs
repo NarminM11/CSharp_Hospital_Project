@@ -4,7 +4,7 @@ using C_Hospital_Appointment.Models;
 
 namespace DoctorNamespace
 {
-    public class Doctor
+    public class Doctor : IDoctorService
     {
         public Guid Id { get; set; }  
         public string? Firstname { get; set; }  // doctorun adı

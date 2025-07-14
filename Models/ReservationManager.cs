@@ -4,7 +4,7 @@ using UserNamespace;
 
 namespace CSharp_Hospital
 {
-    public class ReservationManager
+    public class ReservationManager : IReservationService
     {
         public List<User> _users { get; set; }  // bütün userler listi
 

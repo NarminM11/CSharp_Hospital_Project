@@ -5,7 +5,7 @@ using DoctorNamespace;
 
 namespace AdminNamespace
 {
-    public class Admin
+    public class Admin :IAdminService
     {
         public Guid Id { get; set; }  // adminin ID-si
         public string username { get; set; }  // adminin username-i (admin)
